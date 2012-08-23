@@ -64,8 +64,8 @@ module APN
     end
     
     def run(worker_name = nil)
-      logger = Logger.new(File.join(::RAILS_ROOT, 'log', 'apn_sender.log'))
-      
+      #logger = Logger.new(File.join(::RAILS_ROOT, 'log', 'apn_sender.log'))
+      logger = Logger.new(STDOUT)
       worker = APN::Sender.new(@options)
       worker.logger = logger
       worker.verbose = @options[:verbose]
